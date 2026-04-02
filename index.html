@@ -273,6 +273,7 @@
         }
 
         /* Mobile menu overlay */
+        /* Mobile menu overlay */
         .mobile-menu {
             position: fixed;
             top: 0;
@@ -280,52 +281,43 @@
             right: 0;
             bottom: 0;
             background: rgba(8, 8, 8, 0.98);
-            padding: 80px 24px 32px;
-            max-height: 100dvh;
             z-index: 999;
             display: flex;
             flex-direction: column;
-            gap: 4px;
             transform: translateX(100%);
             transition: transform 0.35s ease-in-out;
             overflow-y: auto;
-            -webkit-overflow-scrolling: touch;
-        }
-
-        @media (max-width: 360px) {
-            .mobile-menu {
-                padding: 70px 16px 24px;
-            }
-
-            .mobile-menu a {
-                font-size: 14px;
-                padding: 12px 0;
-            }
-
-            .mobile-menu .btn-reserve-mobile {
-                font-size: 12px;
-                padding: 12px 20px;
-            }
+            visibility: hidden;
+            will-change: transform;
         }
 
         .mobile-menu.active {
             transform: translateX(0);
+            visibility: visible;
+        }
+
+        .mobile-menu-inner {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 90px 28px 36px;
+            gap: 0;
         }
 
         .mobile-menu a {
             display: block;
             font-family: 'Inter', sans-serif;
-            font-size: 16px;
+            font-size: 17px;
             letter-spacing: 0.1em;
             text-transform: uppercase;
             color: rgba(255, 255, 255, 0.85);
-            padding: 14px 0;
+            padding: 16px 0;
             border-bottom: 1px solid rgba(255, 255, 255, 0.08);
         }
 
         .mobile-menu .btn-reserve-mobile {
             display: block;
-            margin-top: 24px;
+            margin-top: 28px;
             text-align: center;
             font-family: 'Inter', sans-serif;
             font-size: 13px;
@@ -333,10 +325,26 @@
             text-transform: uppercase;
             color: var(--dark);
             background: linear-gradient(135deg, var(--gold), var(--gold-light));
-            padding: 14px 24px;
+            padding: 16px 28px;
             border-radius: 2px;
             font-weight: 600;
             border: none;
+        }
+
+        @media (max-width: 360px) {
+            .mobile-menu-inner {
+                padding: 80px 16px 28px;
+            }
+
+            .mobile-menu a {
+                font-size: 15px;
+                padding: 14px 0;
+            }
+
+            .mobile-menu .btn-reserve-mobile {
+                font-size: 12px;
+                padding: 14px 22px;
+            }
         }
 
         /* ===== HERO ===== */
@@ -1270,12 +1278,14 @@
             </button>
         </div>
         <div class="mobile-menu" id="mobileMenu">
-            <a href="#servicios">Servicios</a>
-            <a href="#nosotros">Nosotros</a>
-            <a href="#equipo">Equipo</a>
-            <a href="#testimonios">Testimonios</a>
-            <a href="#contacto">Contacto</a>
-            <a href="#contacto" class="btn-reserve-mobile">Reservar Cita</a>
+            <div class="mobile-menu-inner">
+                <a href="#servicios">Servicios</a>
+                <a href="#nosotros">Nosotros</a>
+                <a href="#equipo">Equipo</a>
+                <a href="#testimonios">Testimonios</a>
+                <a href="#contacto">Contacto</a>
+                <a href="#contacto" class="btn-reserve-mobile">Reservar Cita</a>
+            </div>
         </div>
     </nav>
 
